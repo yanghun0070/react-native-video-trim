@@ -244,14 +244,14 @@ public class VideoTrimmerView extends FrameLayout implements IVideoTrimmerView {
   private void setUpListeners() {
     findViewById(R.id.cancelBtn).setOnClickListener(view -> {
       AlertDialog.Builder builder = new AlertDialog.Builder(mContext.getCurrentActivity());
-      builder.setMessage("Are you sure want to cancel?");
-      builder.setTitle("Warning!");
+      builder.setMessage("정말 취소하시겠습니까?");
+      builder.setTitle("경고!");
       builder.setCancelable(false);
-      builder.setPositiveButton("Proceed", (dialog, which) -> {
+      builder.setPositiveButton("진행", (dialog, which) -> {
         dialog.cancel();
         onCancelClicked();
       });
-      builder.setNegativeButton("Close", (dialog, which) -> {
+      builder.setNegativeButton("닫기", (dialog, which) -> {
         dialog.cancel();
       });
       AlertDialog alertDialog = builder.create();
@@ -260,14 +260,14 @@ public class VideoTrimmerView extends FrameLayout implements IVideoTrimmerView {
 
     findViewById(R.id.saveBtn).setOnClickListener(view ->  {
       AlertDialog.Builder builder = new AlertDialog.Builder(mContext.getCurrentActivity());
-      builder.setMessage("Are you sure want to save?");
-      builder.setTitle("Confirmation!");
+      builder.setMessage("정말로 저장하시겠습니까??");
+      builder.setTitle("확인!");
       builder.setCancelable(false);
-      builder.setPositiveButton("Proceed", (dialog, which) -> {
+      builder.setPositiveButton("진행", (dialog, which) -> {
         dialog.cancel();
         onSaveClicked();
       });
-      builder.setNegativeButton("Close", (dialog, which) -> {
+      builder.setNegativeButton("닫기", (dialog, which) -> {
         dialog.cancel();
       });
       AlertDialog alertDialog = builder.create();
@@ -293,7 +293,7 @@ public class VideoTrimmerView extends FrameLayout implements IVideoTrimmerView {
 
   private void onSaveClicked() {
     if (mRightProgressPos - mLeftProgressPos < VideoTrimmerUtil.MIN_SHOOT_DURATION) {
-      Toast.makeText(mContext, "Video shorter than 3s, can't proceed", Toast.LENGTH_SHORT).show();
+      Toast.makeText(mContext, "3초 미만의 동영상으로 진행할 수 없습니다.", Toast.LENGTH_SHORT).show();
     } else {
       mVideoView.pause();
       VideoTrimmerUtil.trim(mContext,

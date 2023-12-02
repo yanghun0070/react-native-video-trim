@@ -197,7 +197,10 @@ public class StorageUtil {
 
   public static void saveVideoToGallery(ReactApplicationContext context, String videoFilePath) throws IOException {
     File videoFile = new File(videoFilePath);
-
+    // Create the file if it doesn't exist
+    if (!videoFile.exists()) {
+      boolean isFileCreated = videoFile.createNewFile();
+    }
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
       // For Android 10 and higher (API >= 29)
       saveVideoUsingMediaStore(context, videoFile);
