@@ -139,7 +139,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/save"
-        android:textColor="@android:color/colorPrimary"
+        android:textColor="#27AA69"
         android:textSize="16dp" />
 
     </FrameLayout>

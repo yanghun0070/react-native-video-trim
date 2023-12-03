@@ -2,13 +2,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools"
   tools:ignore="MissingTranslation">
   <string name="app_name">Video Trim</string>
-  <string name="trimmed_done">video trim completed！</string>
-  <string name="trimming">Trimming video...</string>
-  <string name="compressing">Compressing video...</string>
-  <string name="compressed_done">video compression completed！</string>
+  <string name="trimmed_done">영상 다듬기 완료!</string>
+  <string name="trimming">비디오 트리밍 진행 중…</string>
+  <string name="compressing">비디오 압축 중…</string>
+  <string name="compressed_done">비디오 압축 완료!</string>
   <string name="open_permission">Open permission</string>
-  <string name="video_record_des">To record a video, you need to give the camera and microphone access.</string>
-  <string name="recording">RECORD</string>
-  <string name="cancel">Cancel</string>
-  <string name="save">Save</string>
+  <string name="video_record_des">동영상을 녹화하려면 카메라와 마이크에 액세스 권한을 부여해야 합니다.</string>
+  <string name="recording">기록</string>
+  <string name="cancel">취소</string>
+  <string name="save">저장</string>
 </resources>

@@ -65,6 +65,23 @@ class VideoTrim: RCTEventEmitter, UIVideoEditorControllerDelegate, UINavigationC
                         root.present(editController, animated: true, completion: {
                             self.emitEventToJS("onShow", eventData: nil)
                             self.isShowing = true
+                                                        
+                            if let topItem = editController.navigationBar.topItem{
+                                if let title = config["title"] as? String, !title.isEmpty {
+                                    topItem.title = title
+                                }
+                                
+                                // when it comes to bar button customization
+                                // we can't customize text of original buttons here, we can only set attrs like enabled/hidden
+                                // to customize text we need to create new button
+                                if let cancelBtnText = config["cancelButtonText"] as? String, !cancelBtnText.isEmpty {
+                                    topItem.leftBarButtonItem = UIBarButtonItem(title: cancelBtnText, style: topItem.leftBarButtonItem?.style ?? .plain, target: topItem.leftBarButtonItem?.target, action: topItem.leftBarButtonItem?.action)
+                                }
+                                
+                                if let saveBtnText = config["saveButtonText"] as? String, !saveBtnText.isEmpty {
+                                    topItem.rightBarButtonItem = UIBarButtonItem(title: saveBtnText, style: topItem.rightBarButtonItem?.style ?? .plain, target: topItem.rightBarButtonItem?.target, action: topItem.rightBarButtonItem?.action)
+                                }
+                            }
                         })
                     }
                 }

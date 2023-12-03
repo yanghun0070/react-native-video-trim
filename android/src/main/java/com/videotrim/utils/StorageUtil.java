@@ -227,10 +227,16 @@ public class StorageUtil {
         OutputStream outputStream = context.getContentResolver().openOutputStream(uri);
         if (outputStream != null) {
           // Copy the video file to the output stream
-          // Here, you can use the method you have to copy the file contents
-          // For example, you can use FileInputStream to read from videoFile and write to outputStream
+          FileInputStream inputStream = new FileInputStream(videoFile);
+          byte[] buffer = new byte[1024];
+          int length;
+          while ((length = inputStream.read(buffer)) > 0) {
+            outputStream.write(buffer, 0, length);
+          }
+          inputStream.close();
 
           outputStream.close();
+
           // Notify the media scanner that a new video has been added to the gallery
           MediaScannerConnection.scanFile(context, new String[]{videoFile.getAbsolutePath()}, new String[]{"video/*"}, null);
         }
